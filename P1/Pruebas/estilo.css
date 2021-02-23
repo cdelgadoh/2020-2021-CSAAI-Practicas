@@ -1,0 +1,67 @@
+body{
+    background-image:linear-gradient(to bottom right,blue, white);
+    font-size: 15px;
+}
+
+h1{
+    font-family: "Verdana", sans-serif;
+    letter-spacing: 1px;
+    font-size: 30px;
+    color: white;
+    align-items: center;
+}
+
+h3{
+    font-family: "Verdana";
+    font-size: 20px;
+    border-bottom: #AA7700 10px double;
+    padding: 10px;
+    display: inline-flex;
+    width: 90%;
+    height: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    justify-content: center;
+    align-items: center;
+    text-shadow: 2px 2px grey;
+}
+
+p{
+    font-family:'Times New Roman';
+    font-size: 15px;
+    
+}
+
+img{
+    margin-top: 10px;
+    border-radius: 8px;
+    border: #4d1946 solid 3px;
+    box-shadow: 5px 5px 5px #4d1645;
+}
+aside {
+    width: 30%;
+    border: #AA7700 10px double;
+    margin: 0px;
+    padding: 15px;
+    text-align: justify;
+}
+
+main{
+    border: #AA7700 10px double;
+    margin-top: 0px;
+    padding: 10px;
+    background-image: url(marcaagua.png);
+    background-position: center;
+    background-repeat: repeat-x;
+    flex-wrap: wrap;
+}
+.cuerpo{
+    display: inline-flex;
+    padding: 0px;
+    margin: 50px;
+    border: #AA7700 10px double;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
