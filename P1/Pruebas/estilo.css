@@ -1,6 +1,7 @@
 body{
     background-image: url(css.jpg);
     font-size: 15px;
+    margin: 0px;
   }
 
 h1 {
@@ -26,21 +27,22 @@ pre{
 }
 
 .seccion1 {
-    margin-left: 200px;
+    margin-left: 90px;
     width: 300px;
     height: 200px;
-    padding-left: 50px;
-    padding-right: 50px;
+    padding-left: 15px;
+    padding-right: 20px;
     float: left;
 }
 
 .seccion2 {
     margin-right: 200px;
-    width: 300px;
+    width: 500px;
     height: 200px;
     padding-left: 50px;
     padding-right: 50px;
     float: right;
+    
 }
 
 .seccion3{
@@ -58,6 +60,8 @@ pre{
 
 img{
     width: 20%;
+    margin-left: 100px;
+    margin-top: 25px;
     
 }
 
