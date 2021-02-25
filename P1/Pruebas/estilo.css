@@ -1,7 +1,6 @@
 body{
     background-image: url(css.jpg);
     font-size: 15px;
-    margin: 0px;
   }
 
 h1 {
@@ -16,7 +15,7 @@ h1 {
 h3{
     color:white;
 }
-pre{
+p{
     font-family: "Verdana", sans-serif;
     font-size: 15px;
     border: 1.5px outset #194d30;
@@ -36,12 +35,13 @@ pre{
 }
 
 .seccion2 {
-    margin-right: 200px;
+    margin-left: 500px;
+    margin-top: 150px;
     width: 500px;
     height: 200px;
     padding-left: 50px;
     padding-right: 50px;
-    float: right;
+    float: center;
     
 }
 
@@ -59,9 +59,7 @@ pre{
 }
 
 img{
-    width: 20%;
-    margin-left: 100px;
-    margin-top: 25px;
+    width: 50%;
     
 }
 
