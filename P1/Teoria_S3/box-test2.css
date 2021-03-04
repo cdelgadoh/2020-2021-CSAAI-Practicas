@@ -1,7 +1,7 @@
 body {
-    padding: 0px;
+    padding: 5px; /*Relleno*/
     margin: 10px;
-    border: none;
+    border: solid;
     border-color: red;
   }
   
