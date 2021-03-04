@@ -2,7 +2,7 @@
 body{
     padding: 5px; /*Relleno*/
     margin: 10px; /*Margen*/
-    border:solid;
+    /*border:solid;*/
     border-color: red;
 }
 
