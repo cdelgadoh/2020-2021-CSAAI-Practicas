@@ -1,3 +1,8 @@
+body{
+    background-image: url(image1.jpeg);
+    font-size: 15px;
+  }
+
 h1{
     font-family: "Verdana", sans-serif;
     text-align: center;
