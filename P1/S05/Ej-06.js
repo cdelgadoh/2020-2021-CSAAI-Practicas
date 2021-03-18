@@ -16,7 +16,7 @@ const gui = {
   boton_dec2: document.getElementById("boton_dec2"),
 }
 
-/-- Clase counter para crear contadores
+//-- Clase counter para crear contadores
 //-- Hay que pasarle como parámetro en el constructor  
 //-- el display usado
 class counter {
