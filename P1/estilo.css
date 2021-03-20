@@ -70,7 +70,7 @@ textarea {
     margin-top: auto;
     background-color: whitesmoke;
     border: none;
-    margin-left: auto;
+    margin-left: 75px;
     font-weight: bold;
     line-height: 1;
     color: #666666;
@@ -86,5 +86,6 @@ button {
     padding: 3px 3px;
     text-align: center;
     font-size: 15px;
-    margin:35px;
+    margin-left:120px;
+    margin-top: 15px;
 }
