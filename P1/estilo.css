@@ -90,7 +90,9 @@ button {
     margin-left:120px;
     margin-top: 15px;
 }
-.enlace{
-    width: 5px;
-    height: 5px;
+.insta{
+    margin: 0px;
+}
+.github{
+    margin:0px;
 }
