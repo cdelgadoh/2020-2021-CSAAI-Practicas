@@ -90,9 +90,12 @@ button {
     margin-left:120px;
     margin-top: 15px;
 }
-.insta{
-    margin: 0px;
+.gmail{
+    width: 5%;
 }
 .github{
-    margin:0px;
+    width: 20%;
+}
+.insta{
+    width: 20%;
 }
