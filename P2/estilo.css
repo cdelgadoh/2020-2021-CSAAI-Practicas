@@ -1,0 +1,12 @@
+
+.calc{
+    padding: 20px;
+    width: 405px;
+    height: 400px;
+    background: linear-gradient(#09b39c, #076938);
+    border-radius: 2.5px;
+    border: 1px solid whitesmoke;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 10px 10px 5px -5px rgba(6, 56, 13, 0.75);
+}
