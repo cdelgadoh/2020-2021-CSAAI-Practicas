@@ -1,15 +1,45 @@
 
-.calc{
+#calc{
     padding: 20px;
     width: 405px;
     height: 400px;
     background: linear-gradient(#09b39c, #076938);
     border-radius: 2.5px;
     border: 1px solid whitesmoke;
-    margin-left: auto;
-    margin-right: auto;
+    border-radius: 15px 15px 15px 15px;
+    margin:auto;
+    float: center;
     box-shadow: 10px 10px 5px -5px rgba(6, 56, 13, 0.75);
 }
-h1{
-    margin-left:100px;
+input{
+    margin: auto;
+    width: 140px;
+    height: 45px;
+    background-color: rgba(227, 118, 35);
+    color: #E0FFFF;
+    font-family: Verdana;
+    border-radius: 15px 5px 15px 5px;
+    opacity: 0.7;
+  }
+
+button{
+    width: 50px;
+    height: 50px;
+    border-radius: 15px 5px 15px 5px;
+    float: inline-start;
+}
+p{
+    width: 400px;
+    height: 40px;
+    background-color: black;
+    opacity: 0.50;
+    color: black;
+    font-family: Verdana;
+    font-size: 30px;
+    border-radius: 15px 5px 15px 5px;
+    text-align: right;
+    margin: 25px;
+    float: center;
+    margin-left: auto;
+    margin-right: auto;
 }
