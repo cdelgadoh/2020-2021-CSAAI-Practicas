@@ -15,7 +15,7 @@ const ESTADO = {
     OP1: 1,
     OPERATION: 2,
     OP2_INIT: 3,
-    OP2: 4;
+    OP2: 4
 }
  
  //-- Variable de estado de la calculadora
