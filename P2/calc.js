@@ -1,45 +1,44 @@
 console.log("Ejecutando JS...");
 
-display = document.getElementById("display")
-equal = document.getElementById("equal")
-del = document.getElementById("del")
-ac = document.getElementById("ac")
+display = document.getElementById("display");
+ equal = document.getElementById("equal");
+ del = document.getElementById("del");
+ ac = document.getElementById("ac");
+ sqrt = document.getElementById("sqrt");
 
-//--Digitos y operadores
-let digit = document.getElementsByClassName('digit');
-let operator = document.getElementsByClassName('operator');
+ //-- Digitos y operadores
+ let digit = document.getElementsByClassName("digit");
+ let operator = document.getElementsByClassName("operator");
 
-//-- Estados de la calculadora
+
+ //-- Estados de la calculadora
 const ESTADO = {
-    INIT: 0,
-    OP1: 1,
-    OPERATION: 2,
-    OP2_INIT: 3,
-    OP2: 4
+  INIT: 0,
+  OP1: 1,
+  OPERATION: 2,
+  OP2_INIT: 3,
+  OP2: 4,
 }
- 
- //-- Variable de estado de la calculadora
- //-- Al comenzar estamos en el estado incial
- let estado = ESTADO.INIT;   
 
-//-- Función de retrollamada de los digitos
-for(i=0; i<digit.length; i++){
+  let estado = ESTADO.INIT;
+
+  //-- Digitos
+  for(i=0; i<digit.length; i++){
     digit[i].onclick=(ev)=>{
      number(ev.target.value);
      console.log(`ESTADO ${estado}`);
     }
   }
 
-//-- Función retrollamada de los operadores
-for(i=0; i<operator.length; i++){
+  //-- Operadores
+  for(i=0; i<operator.length; i++){
     operator[i].onclick=(ev)=>{
-     operators(ev.target.value);
-     console.log(`ESTADO ${estado}`);
+      operators(ev.target.value);
+      console.log(`ESTADO ${estado}`);
     }
   }
 
-//--Función 
-function number(num){
+  function number(num){
     //-- Segun el estado hacemos una cosa u otra
     if (estado == ESTADO.INIT) {
       display.innerHTML = num;
@@ -64,27 +63,21 @@ function number(num){
     }
 }
 
-
-//-- Evaluar la expresion
-equal.onclick = () => {
-  
-    //-- Calcular la expresión y añadirla al display
+  // Igual
+  equal.onclick = () => {
     display.innerHTML = eval(display.innerHTML);
-  
-}
+  }
 
-//-- Poner a cero la expresion
-//-- Y volver al estado inicial
-ac.onclick = () => {
-  display.innerHTML = "";
-  estado = ESTADO.INIT;
-}
+  // Borrar todo
+ ac.onclick = () => {
+   display.innerHTML = "";
+ }
 
 // Borrar lo ultimo añadido
-del.onclick = () => {
-    if (display.innerHTML == "0"){
-      display.innerHTML = "";
-    }else{
-      display.innerHTML = display.innerHTML.slice(0,-1);
-    }
-  }
+ del.onclick = () => {
+   if (display.innerHTML == "0"){
+     display.innerHTML = "";
+   }else{
+     display.innerHTML = display.innerHTML.slice(0,-1);
+   }
+ }

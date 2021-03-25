@@ -1,41 +1,48 @@
 
+body{
+    border: none;
+    background-color: #cfccbbb3;
+  }
+  
 #calc{
     padding: 20px;
-    width: 405px;
-    height: 400px;
+    width: 450px;
     background: linear-gradient(#09b39c, #076938);
     border-radius: 2.5px;
-    border: 1px solid whitesmoke;
+    border: 1px whitesmoke;
     border-radius: 15px 15px 15px 15px;
-    margin:auto;
+    margin: auto;
     float: center;
-    box-shadow: 10px 10px 5px -5px rgba(6, 56, 13, 0.75);
+    box-shadow: 10px 10px 5px -5px rgba(6, 56, 13, 0.2);
 }
+  
+#equal{
+    width: 150px;
+}
+  
 input{
     margin: auto;
     width: 140px;
     height: 45px;
-    background-color: rgba(227, 118, 35);
-    color: #E0FFFF;
     font-family: Verdana;
     border-radius: 15px 5px 15px 5px;
     opacity: 0.7;
 }
-#equal{
-    width: 150px;
-}
+
+  
 button{
     width: 45px;
     height: 50px;
+    font-family: Verdana;
     border-radius: 15px 5px 15px 5px;
     opacity: 0.7;
 }
+
 p{
     width: 400px;
     height: 40px;
-    background-color: black;
-    opacity: 0.50;
-    color: black;
+    border-color: black;
+    opacity: 0.75;
     font-family: Verdana;
     font-size: 30px;
     border-radius: 15px 5px 15px 5px;
@@ -45,3 +52,4 @@ p{
     margin-left: auto;
     margin-right: auto;
 }
+
