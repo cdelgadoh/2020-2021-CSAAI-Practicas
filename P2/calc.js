@@ -23,65 +23,47 @@ const ESTADO = {
  let estado = ESTADO.INIT;   
 
 //-- Función de retrollamada de los digitos
-function digito(ev)
-{
-    //-- Se ha recibido un dígito
-    //-- Según en qué estado se encuentre la calculadora
-    //-- se hará una cosa u otra
+for(i=0; i<digit.length; i++){
+    digit[i].onclick=(ev)=>{
+     number(ev.target.value);
+     console.log(`ESTADO ${estado}`);
+    }
+  }
 
-    //-- Si es el primer dígito, no lo añadimos,
-    //-- sino que lo mostramos directamente en el display
+//-- Función retrollamada de los operadores
+for(i=0; i<operator.length; i++){
+    operator[i].onclick=(ev)=>{
+     operators(ev.target.value);
+     console.log(`ESTADO ${estado}`);
+    }
+  }
+
+//--Función 
+function number(num){
+    //-- Segun el estado hacemos una cosa u otra
     if (estado == ESTADO.INIT) {
+      display.innerHTML = num;
+      estado = ESTADO.OP1;
+    }else if (estado == ESTADO.OP1){
+      display.innerHTML += num;
+    } else if (estado == ESTADO.OPERATION) {
+      display.innerHTML += num;
+      estado = ESTADO.OP2_INIT;
+    }else if (estado == ESTADO.OP2_INIT) {
+      display.innerHTML +=  num;
+      estado = ESTADO.OP2;
+    }else if (estado == ESTADO.OP2){
+      display.innerHTML += num;
+    }
+  }
 
-        display.innerHTML = ev.target.value;
-
-        //-- Pasar al siguiente estado
-        estado = ESTADO.OP1;
-
-    } else {
-       
-        //--En cualquier otro estado lo añadimos
-        display.innerHTML += ev.target.value;
-
-        //-- Y nos quedamos en el mismo estado
-        //-- Ojo! Este ejemplo sólo implementa el primer
-        //-- estado del diagrama. Habría que tener en 
-        //-- cuenta el resto... lo debes hacer en tu práctica
-    } 
-    
+  function operators(operat){
+    if (estado != ESTADO.OPERATION) {
+      display.innerHTML += operat;
+      estado = ESTADO.OPERATION;
+    }
 }
 
-
-//-- Obtener una colección con todos los elementos
-//-- de la clase digito
-digitos = document.getElementsByClassName("digito")
-
-//-- Establecer la misma función de retrollamada
-//-- para todos los botones de tipo dígito
-for (let boton of digitos) {
-
-    //-- Se ejecuta cuando se pulsa un boton
-    //-- que es un dígito. Para que el código sea 
-    //-- mas legible la función de retrollamada se
-    //-- escribe como una función normal (digito)
-    boton.onclick = digito;
-}
-
-//-------- Resto de funciones de retrollamada
-
-//-- Operación de sumar
-suma.onclick = (ev) => {
-
-    //-- Insertar simbolo de sumar
-    display.innerHTML += ev.target.value;
-
-    //-- ¡Ojo! Aquí se inserta el + siempre!
-    //-- Para que la calculadora funcione bien
-    //-- sólo se debe permitir insertar el operador
-    //-- en el estado OP1, y debe cambiar el estado
-    //-- a OPERATION (según el diagrama de estados)
-  
-}
 
 //-- Evaluar la expresion
 equal.onclick = () => {
