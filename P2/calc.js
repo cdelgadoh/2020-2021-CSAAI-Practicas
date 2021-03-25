@@ -1,16 +1,21 @@
 console.log("Ejecutando JS...");
 
 display = document.getElementById("display")
-suma = document.getElementById("suma")
-igual = document.getElementById("igual")
-clear = document.getElementById("clear")
+equal = document.getElementById("equal")
+del = document.getElementById("del")
+ac = document.getElementById("ac")
+
+//--Digitos y operadores
+let digit = document.getElementsByClassName('digit');
+let operator = document.getElementsByClassName('operator');
 
 //-- Estados de la calculadora
 const ESTADO = {
     INIT: 0,
     OP1: 1,
     OPERATION: 2,
-    OP2: 3
+    OP2_INIT: 3,
+    OP2: 4;
 }
  
  //-- Variable de estado de la calculadora
@@ -79,20 +84,25 @@ suma.onclick = (ev) => {
 }
 
 //-- Evaluar la expresion
-igual.onclick = () => {
+equal.onclick = () => {
   
     //-- Calcular la expresión y añadirla al display
     display.innerHTML = eval(display.innerHTML);
-
-    //-- ¡Ojo! Aquí se hace siempre!
-    //-- Sólo se debe permitar que eso se haga
-    //-- si se está en el estado final (OP2)
   
 }
 
 //-- Poner a cero la expresion
 //-- Y volver al estado inicial
-clear.onclick = () => {
-  display.innerHTML = "0";
+ac.onclick = () => {
+  display.innerHTML = "";
   estado = ESTADO.INIT;
 }
+
+// Borrar lo ultimo añadido
+del.onclick = () => {
+    if (display.innerHTML == "0"){
+      display.innerHTML = "";
+    }else{
+      display.innerHTML = display.innerHTML.slice(0,-1);
+    }
+  }
