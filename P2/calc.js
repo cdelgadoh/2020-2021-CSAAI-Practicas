@@ -4,7 +4,14 @@ display = document.getElementById("display");
  equal = document.getElementById("equal");
  del = document.getElementById("del");
  ac = document.getElementById("ac");
- sqrt = document.getElementById("sqrt");
+ ans = document.getElementById("ans");
+ raiz = document.getElementById("raiz");
+ porcentaje = document.getElementById("porcentaje");
+ log = document.getElementById("log");
+ ln = document.getElementById("ln");
+ sin = document.getElementById("sin");
+ cos = document.getElementById("cos");
+ tan = document.getElementById("tan");
 
  //-- Digitos y operadores
  let digit = document.getElementsByClassName("digit");
@@ -63,10 +70,45 @@ const ESTADO = {
     }
 }
 
-  // Igual
-  equal.onclick = () => {
-    display.innerHTML = eval(display.innerHTML);
+ //-- Calcular raiz cuadrada
+ raiz.onclick = () => {
+  display.innerHTML = Math.sqrt(display.innerHTML);
+}
+
+//-- Calcular porcentaje en la expresion
+porcentaje.onclick = () => {
+  display.innerHTML = (display.innerHTML/100);
+}
+
+//-- Calcular raiz cuadrada
+log.onclick = () => {
+  display.innerHTML = Math.log10(display.innerHTML);
+}
+
+ln.onclick = () => {
+  display.innerHTML = Math.log(display.innerHTML);
+}
+
+//seno
+sin.onclick =()=>{
+  display.innerHTML = Math.sin(display.innerHTML);
+}
+
+//coseno
+cos.onclick =()=>{
+  cos.onclick =()=>{
+    display.innerHTML = Math.cos(display.innerHTML);
   }
+}
+
+//tan
+tan.onclick =()=>{
+  display.innerHTML = Math.tan(display.innerHTML);
+}
+  // Igual
+equal.onclick = () => {
+  display.innerHTML = eval(display.innerHTML);
+}
 
   // Borrar todo
  ac.onclick = () => {
@@ -81,3 +123,4 @@ const ESTADO = {
      display.innerHTML = display.innerHTML.slice(0,-1);
    }
  }
+
