@@ -93,10 +93,15 @@ button {
 }
 .gmail{
     width: 5%;
+    margin-left: 2.5px;
+    margin-right: 5px;
 }
 .github{
     width: 20%;
+    
 }
-.insta{
-    width: 20%;
+.icono{
+    width:15%;
+    height: 25%;
+    margin-left: 20px;
 }
