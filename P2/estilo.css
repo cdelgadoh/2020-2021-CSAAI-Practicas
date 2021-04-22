@@ -16,8 +16,9 @@ body{
 }
 
 input{
-    margin: auto;
-    width: 140px;
+    margin-left: 100px;
+    margin-right: 100px;
+    width: 45px;
     height: 45px;
     font-family: Verdana;
     color:white;
