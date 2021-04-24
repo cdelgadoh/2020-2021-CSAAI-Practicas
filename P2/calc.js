@@ -16,7 +16,7 @@ tan = document.getElementById("tan")
 
  //-- Digitos y operadores
 let numeros = document.getElementsByClassName('numero');
-let calculos = document.getElementsByClassName('operacion');
+let operaciones = document.getElementsByClassName('operacion');
 
  //-- Estados de la calculadora
 const ESTADO = {
@@ -39,8 +39,8 @@ for(i=0; i<numeros.length; i++){
   }
 
   //-- Operadores
-for(i=0; i<calculos.length; i++){
-  calculos[i].onclick=(ev)=>{
+for(i=0; i<operaciones.length; i++){
+  operaciones[i].onclick=(ev)=>{
     if(estado == ESTADO.OP1){
       display.innerHTML += ev.target.value;
       estado = ESTADO.OPERATION;
