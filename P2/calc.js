@@ -18,6 +18,9 @@ tan = document.getElementById("tan")
 let numeros = document.getElementsByClassName('numero');
 let operaciones = document.getElementsByClassName('operacion');
 
+// Resultado
+var resultado;
+
  //-- Estados de la calculadora
 const ESTADO = {
   INIT: 0,
@@ -63,24 +66,19 @@ function digito(boton){
 }
 
 //-- Evaluar 
-igual.onclick = () => {
-  console.log(estado);
-  if(estado == ESTADO.OP2){
-    display.innerHTML = eval(display.innerHTML);
+equal.onclick = () => {
+  if(estado == ESTADO.OP1 ||  estado == ESTADO.OP2){
+    resultado = eval(display.innerHTML.replace('π', 'Math.PI').replace('^','**'))
+    display.innerHTML = resultado
     estado = ESTADO.OP1;
-    ESTADO.PUNTO = false;
-    console.log(estado,"igual");
   }
-  sonido_teclas.play();
 }
 
 //-- Borrar todo
-clear.onclick = (ev) => {
+ac.onclick = (ev) => {
   display.innerHTML = "0";
   estado = ESTADO.INIT;
   ESTADO.PUNTO = false;
-  console.log(estado,"clear");
-  sonido_teclas.play();
 }
 
 //-- Poner punto 
@@ -91,49 +89,54 @@ punto.onclick = (ev) =>{
     display.innerHTML += ev.target.value;
     ESTADO.PUNTO = true;
   }
-  sonido_teclas.play();
 }
 
 //-- Eliminar un digito 
 del.onclick = () => {
   display.innerHTML = display.innerHTML.slice(0,-1);
-  sonido_teclas.play();
+}
+
+//Dvolver digito
+ans.onclick = () => {
+  if(estado != ESTADO.INIT){
+    display.innerHTML += resultado;
+    estado = ESTADO.OP1;
+  }
 }
 
 //-- Calcular porcentaje 
 porcentaje.onclick = () => {
   display.innerHTML = (display.innerHTML/100);
-  sonido_teclas.play();
 }
 
 //-- Calcular raiz cuadrada 
 raiz.onclick = () => {
-  display.innerHTML = Math.sqrt(display.innerHTML);
-  sonido_teclas.play();
+  resultado = Math.sqrt(display.innerHTML);
+  display.innerHTML=resultado
 }
 
 //-- Calcular el seno 
 seno.onclick = () => {
-  display.innerHTML = Math.sin(display.innerHTML);
-  sonido_teclas.play();
+  resultado = Math.sin(display.innerHTML);
+  display.innerHTML=resultado
 }
 //-- Calcular el coseno
 coseno.onclick = () => {
-  display.innerHTML = Math.cos(display.innerHTML);
-  sonido_teclas.play();
+  resultado = Math.cos(display.innerHTML);
+  display.innerHTML=resultado
 }
 //-- Calcular la tangente
 tangente.onclick = () => {
-  display.innerHTML = Math.tan(display.innerHTML);
-  sonido_teclas.play();
+  resultado = Math.tan(display.innerHTML);
+  display.innerHTML=resultado
 }
 //-- Calcular logaritmo
 logaritmo.onclick = () => {
-  display.innerHTML = Math.log(display.innerHTML);
-  sonido_teclas.play();
+  resultado = Math.log10(display.innerHTML);
+  display.innerHTML=resultado
 }
 //-- Calcular logaritmo neperiano
 ln.onclick = () => {
-  display.innerHTML = Math.ln(display.innerHTML);
-  sonido_teclas.play();
+  resultado = Math.ln(display.innerHTML);
+  display.innerHTML=resultado
 }
