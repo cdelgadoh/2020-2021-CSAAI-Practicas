@@ -9,47 +9,55 @@
     <title>Calculadora</title>
 </head>
 <body>
-    <br>
-    <div id="calc" align="center">
-      <h1>Calculadora</h1>
-      <div id="dis" align= "center">
-          <p id="display"></p>
+    <div class="calcu">
+        <p id="display">0</p>
+        <div class="botones">
+          <div class="linea1">
+            <button class="operacion" value="(">(</button>
+            <button class="operacion" value=")">)</button>
+            <button id="sen">sen</button>
+            <button id="cos">cos</button>
+            <button id="tan">tan</button>
+          </div>
+          <div class="linea2">
+            <button id="√">√</button>
+            <button class="operacion" value="**">^</button>
+            <button id="porcentaje">%</button>
+            <button id="logaritmo">log</button>
+            <button id="ln">ln</button>
+          </div>
+          <div class="linea3">
+              <button class="numero" value="7">7</button>
+              <button class="numero" value="8">8</button>
+              <button class="numero" value="9">9</button>
+              <button id = "del" value="DEL">DEL</button>
+              <button id="clear">AC</button>
+          </div>
+
+          <div class="linea4">
+              <button class="numero" value="4">4</button>
+              <button class="numero" value="5">5</button>
+              <button class="numero" value="6">6</button>
+              <button class="operacion" value="*">*</button>
+              <button class="operacion" value="/">/</button> 
+          </div>
+
+          <div class="linea5">
+              <button class="numero" value="1">1</button>
+              <button class="numero" value="2">2</button>
+              <button class="numero" value="3">3</button>
+              <button class="operacion" value="+">+</button>
+              <button class="operacion" value="-">-</button>
+          </div>
+
+          <div class="linea6">
+              <button id="punto" value=".">.</button>
+              <button class="numero" value="0">0</button>
+              <button class = "numero" value = "3.1416">π</button>
+              <button id = "ans" value="ANS">ANS</button>
+              <button id="igual">=</button>
+          </div>
         </div>
-      <button class="operator" id="raiz">√</button>
-      <button class="operator" value="**">^</button>
-      <button class="operator" id="porcentaje">%</button>
-      <button class="operator" id="log">log</button>
-      <button class="operator" id="ln">ln</button>
-      <br>
-      <button class="operator" value="(">(</button>
-      <button class="operator" value=")">)</button>
-      <button class="operator" id="sin">sen</button>
-      <button class="operator" id="cos">cos</button>
-      <button class="operator" id="tan">tan</button>
-      <br>
-      <button class="digit" value="7">7</button>
-      <button class="digit" value="8">8</button>
-      <button class="digit" value="9">9</button>
-      <button class="operator" id="del">DEL</button>
-      <button class="operator" id="ac">AC</button>
-      <br>
-      <button class="digit" value="4">4</button>
-      <button class="digit" value="5">5</button>
-      <button class="digit" value="6">6</button>
-      <button class="operator" value="*">x</button>
-      <button class="operator" value="/">÷</button>
-      <br>
-      <button class="digit" value="1">1</button>
-      <button class="digit" value="2">2</button>
-      <button class="digit" value="3">3</button>
-      <button class="operator" value="+">+</button>
-      <button class="operator" value="-">-</button>
-      <br>
-      <button class="digit" value="0">0</button>
-      <button class="digit" value=".">.</button>
-      <button class="operator" value="3.1416">π</button>
-      <button class="operator" id="ans">ANS</button>
-      <button class="operator" id="equal">=</button>
-  </div>
+    </div>
 </body>
 </html>
