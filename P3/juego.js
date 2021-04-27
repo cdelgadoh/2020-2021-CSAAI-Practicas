@@ -1,5 +1,7 @@
-const canvas = document.getElementById("canvas");
+console.log("Ejecutando JS...")
 
+const canvas = document.getElementById("canvas");
+//-- Definir tamaño canvas
 canvas.width = 400;
 canvas.height = 400;
 
