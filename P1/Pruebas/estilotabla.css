@@ -1,0 +1,13 @@
+.seccion3{
+    margin: 10px;
+    color: black;
+    font-family: verdana;
+    font-size: 15px;
+    font-style: normal;
+    color: #0d2618;
+    border: 3px outset #194d30;
+    border-radius: 8px;
+    background-color: #fff5e6;
+    box-shadow: 5px 5px 5px #194d30;
+    padding: 20px;
+}
