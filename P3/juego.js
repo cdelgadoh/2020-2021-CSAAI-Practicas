@@ -16,8 +16,8 @@ let xbola = 300; //Posición x pelota
 let ybola = 675; //Posición y pelota
 
 //-- Velocidades del objeto(de la bola)
-let velx = 3;
-let vely = 1;
+let xvel = 3;
+let yvel = 1;
 
 //-- Constantes
 const button = document.getElementById("play");
@@ -86,25 +86,35 @@ function update(){
   //-- 1) Actualizar posiciones de los elementos
    //-- Movimiento pelota
    if (xbola < 0 || xbola >= (canvas.width - 20) ) {
-    velx = -velx;
-  }if(ybola <= 0 || ybola > 700) {
-    vely = -vely;
+    xvel = -xvel;
+  }if(ybola <= 0 || ybola > (canvas.height - 20)) {
+    yvel = -yvel;
   }
   //-- Actualizar la posición
-  xbola = xbola + velx;
-  ybola = ybola + vely;
+  xbola = xbola + xvel;
+  ybola = ybola + yvel;
   //-- 2) Borrar el canvas
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
   //-- 3) Dibujar los elementos visibles
-
-
-    dibujoraqueta()
-    dibujobola()
-    dibujoladrillos()
+  dibujoraqueta()
+  dibujobola()
+  dibujoladrillos()
   //-- 4) Volver a ejecutar update cuando toque
   requestAnimationFrame(update);
 
+  //-- Mover raqueta
+  window.onkeydown = (e) => {
+  //-- Según la tecla se hace una cosa u otra
+    switch (e.key) {
+      case "a":
+        xraqueta = xraqueta - 20; // Izq.
+    break;
+      case "d":
+        xraqueta = xraqueta + 20; // Dcha.
+    break;
+    }
+  }
 }
 
 update();
