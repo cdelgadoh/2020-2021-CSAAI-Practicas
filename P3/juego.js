@@ -14,6 +14,34 @@ let xraqueta = 260; //Posición x raqueta
 let yraqueta = 550; //Posición y raqueta
 let xbola = 300; //Posición x pelota
 let ybola = 300; //Posición y pelota
+//-- Constantes de los ladrillos
+const LADRILLO = {
+  F: 5,  // Filas
+  C: 9,  // Columnas
+  w: 30,
+  h: 20,
+  origen_x: 0,
+  origen_y: 0,
+  padding: 5,
+  visible: true
+};
+
+//-- Estructura de los ladrillos
+const ladrillos = [];
+
+for (let i = 0; i < LADRILLO.F; i++) {
+    ladrillos[i] = [];
+    for (let j = 0; j < LADRILLO.C; j++) {
+      ladrillos[i][j] = {
+          x: (LADRILLO.w + LADRILLO.padding) * j,
+          y: (LADRILLO.h + LADRILLO.padding) * i,
+          w: LADRILLO.w,
+          h: LADRILLO.h,
+          padding: LADRILLO.padding,
+          visible: LADRILLO.visible
+        };
+    }
+}
 
 //-- Funcion raqueta
 function dibujoraqueta(){
@@ -33,6 +61,22 @@ function dibujobola(){
   ctx.fill(); // Rellenar
   ctx.stroke() // Trazo
 ctx.closePath();
+}
+
+//-- Funcion ladrillos 
+function dibujoladrillos(){
+  for (let i = 0; i < LADRILLO.F; i++) {
+    for (let j = 0; j < LADRILLO.C; j++) {
+    //-- Si el ladrillo es visible se pinta
+      if (ladrillos[i][j].visible) {
+        ctx.beginPath();
+        ctx.rect(ladrillos[i][j].x, ladrillos[i][j].y, LADRILLO.w, LADRILLO.h);
+        ctx.fillStyle = 'blue';
+        ctx.fill();
+        ctx.closePath();
+      }
+    }
+  }
 }
 
 //-- Funcion principal
@@ -60,6 +104,7 @@ function update(){
 
     dibujoraqueta()
     dibujobola()
+    dibujoladrillos()
   //-- 4) Volver a ejecutar update cuando toque
   requestAnimationFrame(update);
 }
