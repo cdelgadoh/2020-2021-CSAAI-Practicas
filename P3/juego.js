@@ -101,6 +101,14 @@ function update(){
     xvel = xvel * -1;
   }
 
+  //Limites raqueta
+  if (xraqueta < 0) {
+    xraqueta = 0;
+  }
+  if (xraqueta > 525){
+    xraqueta = 525;
+  }
+
   //-- 2) Borrar el canvas
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
