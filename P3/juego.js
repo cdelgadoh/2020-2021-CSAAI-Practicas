@@ -15,6 +15,10 @@ let yraqueta = 700; //Posición y raqueta
 let xbola = 300; //Posición x pelota
 let ybola = 675; //Posición y pelota
 
+//-- Velocidades del objeto(de la bola)
+let velx = 3;
+let vely = 1;
+
 //-- Constantes
 const button = document.getElementById("play");
 
@@ -40,7 +44,6 @@ for (i = 0; i < filas; i++){
       b = b + 1; //b es cada posicion del arraybloque
   }
 }
-
 
 //-- Funcion raqueta
 function dibujoraqueta(){
@@ -81,7 +84,15 @@ function update(){
     console.log("test");
   //-- Algoritmo de animacion:
   //-- 1) Actualizar posiciones de los elementos
-
+   //-- Movimiento pelota
+   if (xbola < 0 || xbola >= (canvas.width - 20) ) {
+    velx = -velx;
+  }if(ybola <= 0 || ybola > 700) {
+    vely = -vely;
+  }
+  //-- Actualizar la posición
+  xbola = xbola + velx;
+  ybola = ybola + vely;
   //-- 2) Borrar el canvas
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -93,6 +104,7 @@ function update(){
     dibujoladrillos()
   //-- 4) Volver a ejecutar update cuando toque
   requestAnimationFrame(update);
+
 }
 
 update();
