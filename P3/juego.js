@@ -90,9 +90,17 @@ function update(){
   }if(ybola <= 0 || ybola > (canvas.height - 20)) {
     yvel = -yvel;
   }
+
   //-- Actualizar la posición
   xbola = xbola + xvel;
   ybola = ybola + yvel;
+
+  //-- Rebotar raqueta
+  if (xbola >= xraqueta && xbola <= (xraqueta + 50) && ybola >= (yraqueta - 10)) {
+    yvel = yvel * -1;
+    xvel = xvel * -1;
+  }
+
   //-- 2) Borrar el canvas
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
