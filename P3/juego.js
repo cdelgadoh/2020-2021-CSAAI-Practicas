@@ -3,45 +3,44 @@ console.log("Ejecutando JS...");
 const canvas = document.getElementById("canvas");
 
 //-- Definir el tamaño del canvas
-canvas.width = 500;
-canvas.height = 650;
+canvas.width = 600;
+canvas.height = 750;
 
 //-- Obtener el contexto del canvas
 const ctx = canvas.getContext("2d");
 
 //-- Posición elementos
 let xraqueta = 260; //Posición x raqueta
-let yraqueta = 550; //Posición y raqueta
+let yraqueta = 700; //Posición y raqueta
 let xbola = 300; //Posición x pelota
-let ybola = 300; //Posición y pelota
+let ybola = 675; //Posición y pelota
+
+//-- Constantes
+const button = document.getElementById("play");
+
 //-- Constantes de los ladrillos
-const LADRILLO = {
-  F: 5,  // Filas
-  C: 9,  // Columnas
-  w: 30,
-  h: 20,
-  origen_x: 0,
-  origen_y: 0,
-  padding: 5,
-  visible: true
-};
+let xinit = 35;
+let yinit = 60;
+let xincr = 60;
+let yincr = 50 ;
+let filas = 5;
+let columnas = 9;
+var arraybloques = new Array(filas*columnas);
+let b = 0;
 
 //-- Estructura de los ladrillos
-const ladrillos = [];
-
-for (let i = 0; i < LADRILLO.F; i++) {
-    ladrillos[i] = [];
-    for (let j = 0; j < LADRILLO.C; j++) {
-      ladrillos[i][j] = {
-          x: (LADRILLO.w + LADRILLO.padding) * j,
-          y: (LADRILLO.h + LADRILLO.padding) * i,
-          w: LADRILLO.w,
-          h: LADRILLO.h,
-          padding: LADRILLO.padding,
-          visible: LADRILLO.visible
-        };
-    }
+for (i = 0; i < filas; i++){
+  for(j = 0; j < columnas; j++){
+      var bloque = {
+          x : xinit + j * xincr,
+          y : yinit + i * yincr,
+          estado : 1,
+      };
+      arraybloques[b] = bloque; 
+      b = b + 1; //b es cada posicion del arraybloque
+  }
 }
+
 
 //-- Funcion raqueta
 function dibujoraqueta(){
@@ -65,17 +64,15 @@ ctx.closePath();
 
 //-- Funcion ladrillos 
 function dibujoladrillos(){
-  for (let i = 0; i < LADRILLO.F; i++) {
-    for (let j = 0; j < LADRILLO.C; j++) {
-    //-- Si el ladrillo es visible se pinta
-      if (ladrillos[i][j].visible) {
-        ctx.beginPath();
-        ctx.rect(ladrillos[i][j].x, ladrillos[i][j].y, LADRILLO.w, LADRILLO.h);
-        ctx.fillStyle = 'blue';
-        ctx.fill();
-        ctx.closePath();
+  for (b = 0; b < filas*columnas; b++){
+      if (arraybloques[b].estado == 1){
+          ctx.beginPath();
+              ctx.rect(arraybloques[b].x,arraybloques[b].y,50,20);
+              ctx.strokeStyle = 'white';
+              ctx.fill();
+              ctx.stroke()
+          ctx.closePath();
       }
-    }
   }
 }
 
@@ -89,18 +86,7 @@ function update(){
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
   //-- 3) Dibujar los elementos visibles
-  ctx.beginPath();
-    ctx.rect(x, y, 80, 20);
 
-    //-- Dibujar
-    ctx.fillStyle = 'blanchedalmond';
-
-    //-- Rellenar
-    ctx.fill();
-
-    //-- Dibujar el trazo
-    ctx.stroke()
-  ctx.closePath();
 
     dibujoraqueta()
     dibujobola()
@@ -108,3 +94,5 @@ function update(){
   //-- 4) Volver a ejecutar update cuando toque
   requestAnimationFrame(update);
 }
+
+update();
