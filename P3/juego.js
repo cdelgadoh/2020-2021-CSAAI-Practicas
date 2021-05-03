@@ -230,9 +230,10 @@ function update(){
 
   dibujoraqueta() //raqueta
   dibujobola() //pelota
-  dibujoladrillos(); //ladrillos
-  dibujolinea(); //linea discontinua
-
+  dibujoladrillos() //ladrillos
+  dibujolinea() //linea discontinua
+  puntuacion()
+  vida()
 
   //-- 4) Volver a ejecutar update cuando toque
   requestAnimationFrame(update);
