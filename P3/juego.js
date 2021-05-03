@@ -9,6 +9,16 @@ canvas.height = 600;
 //-- Obtener el contexto del canvas
 const ctx = canvas.getContext("2d");
 
+//-- Elementos
+let puntos = 0; //Puntos
+let vidas = 3; //Vidas
+//Colores
+var color1 = 'green';
+var color2 = 'pink';
+var color3 = 'purple';
+var color4 = 'lightblue';
+var A_colores = [color1,color2,color3,color4]
+
 //-- Posición elementos
 let raquetaX= 210; //Posición x raqueta
 let raquetaY = 560; //Posición y raqueta
@@ -22,6 +32,43 @@ let velY = 1;
 //-- Mover raqueta
 var evento = window.event;
 
+//-- Funcion raqueta
+function dibujoraqueta(){
+  ctx.beginPath();
+  ctx.rect(raquetaX, raquetaY, 80, 20); // Dibujar raqueta
+  ctx.fillStyle = 'white'; // Estilo raqueta
+  ctx.fill(); // Rellenar
+  ctx.stroke() // Trazo
+  ctx.closePath();
+}
+
+//-- Mover raqueta
+window.onkeydown = (e) => {
+  console.log();
+  //-- Según la tecla se hace una cosa u otra
+  switch (e.key) {
+      case "a": // izquierda
+          raquetaX = raquetaX - 20;
+          break;
+      case "d": // derecha
+          raquetaX = raquetaX + 20;
+      break; 
+      case " ":
+          estado = ESTADO.JUEGO;
+          break;
+  }
+}
+
+//-- Funcion pelota
+function dibujobola(){
+  ctx.beginPath();
+  ctx.arc(pelotaX, pelotaY, 10, 0, 2 * Math.PI); // Dibujar pelota
+  ctx.fillStyle = 'blue'; // Estilo
+  ctx.fill(); // Rellenar
+  ctx.stroke() // Trazo
+  ctx.closePath();
+}
+
 //-- Estados juego
 const ESTADO = {
   INIT: 0,
@@ -29,6 +76,18 @@ const ESTADO = {
   JUEGO: 2,
 }
 let estado = ESTADO.INIT
+
+//-- Estado inicial
+function inicio(){
+  if(estado == ESTADO.INIT){
+      pelotaX = 250;
+      pelotaY = 510;
+      raquetaX = 210;
+      raquetaY = 560;
+      velX = 0;
+      velY = 0;
+  }
+}
 
 //-- Constantes de los ladrillos
 let initX = 14;
@@ -46,7 +105,7 @@ const ladrillos = [];
 //-- Estructura de los ladrillos
 for (i = 0; i < LADRILLO.F; i++){
   ladrillos[i] = [];
-  for(j = 0; j < LADRILLOC; j++){
+  for(j = 0; j < LADRILLO.C; j++){
     ladrillos[i][j] = {
       x: initX + (LADRILLO.W + LADRILLO.PADDING) * j,
       y: initY + (LADRILLO.H + LADRILLO.PADDING) * i,
@@ -56,26 +115,6 @@ for (i = 0; i < LADRILLO.F; i++){
       VISIBLE: LADRILLO.VISIBLE
     };
   }
-}
-
-//-- Funcion raqueta
-function dibujoraqueta(){
-  ctx.beginPath();
-  ctx.rect(raquetaX, raquetaY, 80, 20); // Dibujar raqueta
-  ctx.fillStyle = 'white'; // Estilo raqueta
-  ctx.fill(); // Rellenar
-  ctx.stroke() // Trazo
-  ctx.closePath();
-}
-
-//-- Funcion pelota
-function dibujobola(){
-  ctx.beginPath();
-  ctx.arc(pelotaX, pelotaY, 10, 0, 2 * Math.PI); // Dibujar pelota
-  ctx.fillStyle = 'blue'; // Estilo
-  ctx.fill(); // Rellenar
-  ctx.stroke() // Trazo
-  ctx.closePath();
 }
 
 //-- Funcion ladrillos 
@@ -93,59 +132,98 @@ function dibujoladrillos(){
   }
 }
 
+//-- Funcion destruir ladrillos
+function colision(){
+  for(let i = 0; i < LADRILLO.F; i++){
+      for(let j = 0; j < LADRILLO.C; j++){
+          if(pelotaX >= ladrillos[i][j].x && pelotaX <= (ladrillos[i][j].x+35+10) && pelotaY >= ladrillos[i][j].y && pelotaY <= (ladrillos[i][j].y)+30+10 && ladrillos[i][j].VISIBLE){
+              ladrillos[i][j].VISIBLE = false;
+              velY = -velY;
+              if(ladrillos[i][j].color == color1){
+                  puntos = puntos + 1;
+              }
+              if(ladrillos[i][j].color == color2){
+                  puntos = puntos + 2;
+              }
+              if(ladrillos[i][j].color == color3){
+                  puntos = puntos + 3;
+              }
+              if(ladrillos[i][j].color == color4){
+                  puntos = puntos + 4;
+              }
+          }
+      }
+  }  
+}
+
+//-- Linea discontinua
+function dibujolinea(){
+  ctx.beginPath();    
+  ctx.moveTo( 0, 60);//de este punto 
+  ctx.lineTo(600, 60); //a este
+  ctx.strokeStyle = 'white'; //borde blanco
+  ctx.stroke();
+  ctx.closePath();
+}
 
 //-- Funcion principal
 function update(){
-    console.log("test");
+  console.log("test");
   //-- Algoritmo de animacion:
   //-- 1) Actualizar posiciones de los elementos
-   //-- Movimiento pelota
-   if (xbola < 0 || xbola >= (canvas.width - 20) ) {
-    xvel = -xvel;
-  }if(ybola <= 0 || ybola > (canvas.height - 20)) {
-    yvel = -yvel;
-  }
+  //-- Estado inicial
+  inicio();
 
-  //-- Actualizar la posición
-  xbola = xbola + xvel;
-  ybola = ybola + yvel;
+  //-- Movimiento pelota
+  if(estado == ESTADO.JUEGO){
+    if(velX == 0 && velY == 0){
+      velX = 5;
+      velY = -3;
+    }
+    //-- Rebote vertical
+    if (pelotaX < 12 || pelotaX >= (canvas.width - 10) ) {
+      velX = -velX;
+    }
+    
+    //-- Rebote horizontal
+    if (pelotaY <= 12 || pelotaY > (canvas.height - 12)) {
+      velY = -velY;
+    }
+    //-- Actualizar la posición
+    pelotaX = pelotaX + velX;
+    pelotaY = pelotaY + velY;
 
-  //-- Rebotar raqueta
-  if (xbola >= xraqueta && xbola <= (xraqueta + 90) && ybola >= (yraqueta + 30)) {
-    yvel = yvel * -1;
-    xvel = xvel * -1;
-  }
+    //-- Choque raqueta
+    if(pelotaX >= raquetaX-10 && pelotaX < (raquetaX+80+10) && pelotaY >= (raquetaY-10) && pelotaY < (raquetaY+20+10)){
+      velX = -velX;
+      velY = -velY;
+    }
 
-  //Limites raqueta
-  if (xraqueta < 0) {
-    xraqueta = 0;
-  }
-  if (xraqueta > 525){
-    xraqueta = 525;
+    //Limites raqueta
+    if (raquetaX < 0) {
+      raquetaX = 0;
+    }
+    if (raquetaX > 420){
+      raquetaX = 420;
+    }
+
+    colision();
   }
 
   //-- 2) Borrar el canvas
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
   //-- 3) Dibujar los elementos visibles
-  dibujoraqueta()
-  dibujobola()
-  dibujoladrillos()
+
+  dibujoraqueta() //raqueta
+  dibujobola() //pelota
+  dibujoladrillos(); //ladrillos
+  dibujolinea(); //linea discontinua
+
+
   //-- 4) Volver a ejecutar update cuando toque
   requestAnimationFrame(update);
 
-  //-- Mover raqueta
-  window.onkeydown = (e) => {
-  //-- Según la tecla se hace una cosa u otra
-    switch (e.key) {
-      case "a":
-        xraqueta = xraqueta - 20; // Izq.
-    break;
-      case "d":
-        xraqueta = xraqueta + 20; // Dcha.
-    break;
-    }
-  }
 }
 
 update();
