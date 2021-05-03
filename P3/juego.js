@@ -160,14 +160,14 @@ function colision(){
 function puntuacion(){
   ctx.font = "20px Arial";
   ctx.fillStyle = 'white';
-  ctx.fillText('Puntos: ', 30, 40);
+  ctx.fillText('Puntos: ' + puntos, 30, 40);
 }
 
 //-- Texto con vidas
 function vida(){
   ctx.font = "20px Arial";
   ctx.fillStyle = 'red';
-  ctx.fillText('Vidas: ', 400, 40);
+  ctx.fillText('Vidas: ' + vidas, 400, 40);
 }
 //-- Linea discontinua
 function dibujolinea(){
@@ -212,7 +212,7 @@ function update(){
       velY = -velY;
     }
 
-    //Limites raqueta
+    //-- Limites raqueta
     if (raquetaX < 0) {
       raquetaX = 0;
     }
@@ -220,6 +220,16 @@ function update(){
       raquetaX = 420;
     }
 
+    //-- Si no le doy,pierdo
+    if(pelotaY > 570){
+      estado = ESTADO.INIT;
+      vidas = vidas - 1;
+      fallo.play();
+      if (vidas == 0){
+          fin.play();
+          document.location.reload();
+      } // si no golpeo, resto una vida
+    }
     colision();
   }
 
