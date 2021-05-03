@@ -156,7 +156,19 @@ function colision(){
       }
   }  
 }
+//-- Texto con puntos
+function puntuacion(){
+  ctx.font = "20px Arial";
+  ctx.fillStyle = 'white';
+  ctx.fillText('Puntos: ', 30, 40);
+}
 
+//-- Texto con vidas
+function vida(){
+  ctx.font = "20px Arial";
+  ctx.fillStyle = 'red';
+  ctx.fillText('Vidas: ', 400, 40);
+}
 //-- Linea discontinua
 function dibujolinea(){
   ctx.beginPath();    
