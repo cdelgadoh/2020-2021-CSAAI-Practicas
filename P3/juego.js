@@ -112,7 +112,8 @@ for (i = 0; i < LADRILLO.F; i++){
       W: LADRILLO.W,
       H: LADRILLO.H,
       PADDING: LADRILLO.PADDING,
-      VISIBLE: LADRILLO.VISIBLE
+      VISIBLE: LADRILLO.VISIBLE,
+      color: A_colores[Math.floor(Math.random()*4)]
     };
   }
 }
