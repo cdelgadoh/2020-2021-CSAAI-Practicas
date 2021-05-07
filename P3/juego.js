@@ -224,9 +224,7 @@ function update(){
     if(pelotaY > 570){
       estado = ESTADO.INIT;
       vidas = vidas - 1;
-      fallo.play();
       if (vidas == 0){
-          fin.play();
           document.location.reload();
       } // si no golpeo, resto una vida
     }
