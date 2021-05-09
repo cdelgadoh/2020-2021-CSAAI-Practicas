@@ -8,6 +8,7 @@ const ctx = canvas.getContext('2d');
 //-- Acceso al boton
 const gris = document.getElementById('gris');
 const color = document.getElementById('color');
+const invertir = document.getElementById('invertir');
 //-- Acceso al deslizador
 const deslizadorR = document.getElementById('deslizadorR');
 const deslizadorG = document.getElementById('deslizadorG');
@@ -121,7 +122,7 @@ color.onclick = () =>{
         ctx.putImageData(imgData, 0, 0);
     }
 }
-// filtro grises
+//-- Filtro grises
 gris.onclick = () =>{
     ctx.drawImage(img, 0,0);
     let imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
@@ -135,3 +136,12 @@ gris.onclick = () =>{
     }
     ctx.putImageData(imgData, 0, 0);
 }
+//-- Inverir imagen
+invertir.onclick = () => {
+    ctx.drawImage(img, 0,0);
+    let imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+    let data = imgData.data;
+    ctx.translate(0, canvas.height)
+    ctx.scale(1,-1);
+    ctx.drawImage(img, 0, 0);
+  }
