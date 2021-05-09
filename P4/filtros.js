@@ -14,7 +14,12 @@ const deslizadorG = document.getElementById('deslizadorG');
 const deslizadorB = document.getElementById('deslizadorB');
 
 //-- Valor del deslizador
-const range_value = document.getElementById('range_value');
+const range_valueR = document.getElementById('range_valueR');
+const range_valueG = document.getElementById('range_valueG');
+const range_valueB = document.getElementById('range_valueB');
+
+//oculto los deslizadores inicialmente
+document.getElementById('deslizadores').style.display = 'none';
 
 //-- Función de retrollamada de imagen cargada
 //-- La imagen no se carga instantaneamente, sino que
@@ -83,8 +88,8 @@ color.onclick = () =>{
 
         //-- Filtrar la imagen según el nuevo umbral
         for (let i = 0; i < data.length; i+=4) {
-            if (data[i] > umbral)
-            data[i] = umbral;
+            if (data[i+1] > umbral)
+            data[i+1] = umbral;
         }
 
         //-- Poner la imagen modificada en el canvas
@@ -108,8 +113,8 @@ color.onclick = () =>{
 
         //-- Filtrar la imagen según el nuevo umbral
         for (let i = 0; i < data.length; i+=4) {
-            if (data[i] > umbral)
-            data[i] = umbral;
+            if (data[+2] > umbral)
+            data[i+2] = umbral;
         }
 
         //-- Poner la imagen modificada en el canvas
