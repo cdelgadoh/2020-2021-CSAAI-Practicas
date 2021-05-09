@@ -1,6 +1,6 @@
 #imagesrc {
-    display:none;
-  }
-#mystyle{
-    display:none;
-  }
+  display:none;
+}
+#canvas {
+  display : block;
+}
