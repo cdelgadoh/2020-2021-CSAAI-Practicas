@@ -5,6 +5,19 @@ body{
 h2{
     text-align: center;
 }
+h3{
+    color:violet;
+}
+p{
+    color: white;
+    margin-left: 1px;
+}
+div {
+    font-family: 'Arial';
+    margin-top: -610px;
+    padding: 2px;
+    width: 300px;
+}
 
 canvas{
     background-color:black;

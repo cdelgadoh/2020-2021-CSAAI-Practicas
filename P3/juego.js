@@ -18,6 +18,13 @@ var color2 = 'pink';
 var color3 = 'purple';
 var color4 = 'lightblue';
 var A_colores = [color1,color2,color3,color4]
+// Sonidos
+const raqueta = new Audio("raqueta.mp3");
+const rebote = new Audio("rebote.mp3");
+const fallo = new Audio("fallo.mp3");
+const fin = new Audio("gameover.mp3");
+const win = new Audio("win.mp3");
+
 
 //-- Posición elementos
 let raquetaX= 210; //Posición x raqueta
@@ -196,11 +203,13 @@ function update(){
     //-- Rebote vertical
     if (pelotaX < 12 || pelotaX >= (canvas.width - 10) ) {
       velX = -velX;
+      rebote.play();
     }
     
     //-- Rebote horizontal
     if (pelotaY <= 12 || pelotaY > (canvas.height - 12)) {
       velY = -velY;
+      rebote.play();
     }
     //-- Actualizar la posición
     pelotaX = pelotaX + velX;
@@ -210,6 +219,7 @@ function update(){
     if(pelotaX >= raquetaX-10 && pelotaX < (raquetaX+80+10) && pelotaY >= (raquetaY-10) && pelotaY < (raquetaY+20+10)){
       velX = -velX;
       velY = -velY;
+      raqueta.play();
     }
 
     //-- Limites raqueta
@@ -224,8 +234,10 @@ function update(){
     if(pelotaY > 570){
       estado = ESTADO.INIT;
       vidas = vidas - 1;
+      fallo.play();
       if (vidas == 0){
-          document.location.reload();
+        fin.play();
+        document.location.reload();
       } // si no golpeo, resto una vida
     }
     colision();
