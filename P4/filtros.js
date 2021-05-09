@@ -9,6 +9,7 @@ const ctx = canvas.getContext('2d');
 const gris = document.getElementById('gris');
 const color = document.getElementById('color');
 const invertir = document.getElementById('invertir');
+const espejo = document.getElementById('espejo');
 //-- Acceso al deslizador
 const deslizadorR = document.getElementById('deslizadorR');
 const deslizadorG = document.getElementById('deslizadorG');
@@ -18,9 +19,6 @@ const deslizadorB = document.getElementById('deslizadorB');
 const range_valueR = document.getElementById('range_valueR');
 const range_valueG = document.getElementById('range_valueG');
 const range_valueB = document.getElementById('range_valueB');
-
-//oculto los deslizadores inicialmente
-document.getElementById('deslizadores').style.display = 'none';
 
 //-- Función de retrollamada de imagen cargada
 //-- La imagen no se carga instantaneamente, sino que
@@ -144,4 +142,13 @@ invertir.onclick = () => {
     ctx.translate(0, canvas.height)
     ctx.scale(1,-1);
     ctx.drawImage(img, 0, 0);
-  }
+}
+//-- Imagen modo espejo
+espejo.onclick = () => {
+    ctx.drawImage(img, 0,0);
+    let imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+    let data = imgData.data;
+    ctx.translate(canvas.width, 0)
+    ctx.scale(-1,1);
+    ctx.drawImage(img, 0, 0);
+}
