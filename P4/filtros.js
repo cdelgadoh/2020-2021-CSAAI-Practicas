@@ -112,7 +112,7 @@ color.onclick = () =>{
 
         //-- Filtrar la imagen según el nuevo umbral
         for (let i = 0; i < data.length; i+=4) {
-            if (data[+2] > umbral)
+            if (data[i+2] > umbral)
             data[i+2] = umbral;
         }
 
