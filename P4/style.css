@@ -47,8 +47,6 @@ button:hover {
     width: 250px;
   }
   
-
-
   
   canvas{
     width: 500px;
@@ -71,6 +69,6 @@ button:hover {
   
   
   label{
-    margin: 5px;
+    margin: 50px;
   }
   
