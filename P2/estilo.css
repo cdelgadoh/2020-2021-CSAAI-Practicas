@@ -1,11 +1,12 @@
 
 /*Estilo para el cuerpo*/
 body {
-    background-color:black;
+    background-image: url(img.jpg);
 }
   
 /*Estilo Calculadora*/
 .calcu{
+    background-color: black;
     padding: 25px;
     width: 350px;
     height: 470px;
