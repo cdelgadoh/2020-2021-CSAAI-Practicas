@@ -10,7 +10,8 @@ h1{
     letter-spacing: 1px;
     font-size: 30px;
     color: black;
-    text-shadow: 1px 1px 2px rgb(7, 151, 19), 0 0 25px #1ece1e, 0 0 5px #17da17;
+    text-shadow: 1px 1px 2px rgb(226, 128, 145), 0 0 25px pink, 0 0 5px pink;
+
 }
 
 h3{
@@ -22,10 +23,10 @@ p{
     font-family: "Verdana", sans-serif;
     font-size: 15px;
     color: black;
-    border: 1.5px outset #194d30;
+    border: 1.5px outset #1e7f83;
     border-radius: 8px;
     background-color: #fff5e6;
-    box-shadow: 5px 5px 5px #194d30;
+    box-shadow: 5px 5px 5px #1e7f83;
     padding: 8px;
 }
 
@@ -65,10 +66,10 @@ p{
     font-size: 15px;
     font-style: normal;
     color: #0d2618;
-    border: 1.5px outset #194d30;
+    border: 1.5px outset #1e7f83;
     border-radius: 8px;
     background-color: #fff5e6;
-    box-shadow: 5px 5px 5px #194d30;
+    box-shadow: 5px 5px 5px #1e7f83;
     padding: 30px;
 }
 
@@ -79,10 +80,10 @@ p{
     font-size: 15px;
     font-style: normal;
     color: #0d2618;
-    border: 1.5px outset #194d30;
+    border: 1.5px outset #1e7f83;
     border-radius: 8px;
     background-color: #fff5e6;
-    box-shadow: 5px 5px 5px #194d30;
+    box-shadow: 5px 5px 5px #1e7f83;
     padding: 20px;
 }
 
@@ -93,10 +94,10 @@ p{
     font-size: 15px;
     font-style: normal;
     color: #0d2618;
-    border: 1.5px outset #194d30;
+    border: 1.5px outset #1e7f83;
     border-radius: 8px;
     background-color: #fff5e6;
-    box-shadow: 5px 5px 5px #194d30;
+    box-shadow: 5px 5px 5px #1e7f83;
     padding: 20px;
 }
 
@@ -117,7 +118,7 @@ textarea {
     color: #666666;
     padding: 6px;
     border-radius: 20px;
-    border: 2px outset #194d30;
+    border: 2px outset #1e7f83;
 
     resize: none;
 }
