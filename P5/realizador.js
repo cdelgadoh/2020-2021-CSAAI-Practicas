@@ -6,6 +6,7 @@ const video2 = document.getElementById("video2");
 const btn_video2 = document.getElementById("btn_video2");
 const video3 = document.getElementById("video3");
 const btn_video3 = document.getElementById("btn_video3");
+const test = document.getElementById("prueba");
 const btn_test = document.getElementById("btn_test");
 const btn_src_on = document.getElementById("btn_src_on");
 const btn_src_off = document.getElementById("btn_src_off");
@@ -19,9 +20,12 @@ video2.width=200;
 video2.height=100;
 video3.width=200;  
 video3.height=100;
+video3.width=200;  
+video3.height=100;
 
 //-- Imagen de Test usada
 const TEST_IMAGE_URL = "noseñal.jpg";
+const pruebas = "pruebas.png";
 
 //-- Imagen estática a mostrar cuando el video no
 //-- ha arrancado
@@ -29,6 +33,7 @@ directo.poster = TEST_IMAGE_URL;
 video1.poster = TEST_IMAGE_URL;
 video2.poster = TEST_IMAGE_URL;
 video3.poster = TEST_IMAGE_URL;
+test.poster = pruebas;
 
 //-- Boton de FUENTES-ON
 btn_src_on.onclick = () => {
@@ -63,7 +68,7 @@ btn_src_off.onclick = () => {
 }
 //-- Botón de Test
 btn_test.onclick = () => {
-    directo.poster = TEST_IMAGE_URL;
+    directo.poster = pruebas;
     directo.src = null;
 };
 
