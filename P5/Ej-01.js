@@ -6,7 +6,7 @@ const video2 = document.getElementById("video2");
 const btn_video2 = document.getElementById("btn_video2");
 const btn_test = document.getElementById("btn_test");
 const btn_src_on = document.getElementById("btn_src_on");
-
+const btn_src_off = document.getElementById("btn_src_off");
 
 //-- Establecer las dimensiones de los vídeos
 directo.width=420;
@@ -23,6 +23,7 @@ const TEST_IMAGE_URL = "test.png";
 //-- ha arrancado
 directo.poster = TEST_IMAGE_URL;
 video1.poster = TEST_IMAGE_URL;
+video2.poster = TEST_IMAGE_URL;
 
 //-- Boton de FUENTES-ON
 btn_src_on.onclick = () => {
@@ -45,6 +46,14 @@ btn_src_on.onclick = () => {
   directo.poster = TEST_IMAGE_URL;
 };
 
+//-- Boton Fuentes OFF
+btn_src_off.onclick = () => {
+    video1.pause();
+    video2.pause();
+    directo.src = null;
+    directo.poster = TEST_IMAGE_URL;
+
+}
 //-- Botón de Test
 btn_test.onclick = () => {
     directo.poster = TEST_IMAGE_URL;
