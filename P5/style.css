@@ -1,9 +1,14 @@
-#btn_src_on{
-    margin-top: 50px;
-    margin-left: 25px;
-}
-#btn_src_off{
-    margin-top: 10px;
-    margin-left: 25px;
+.botones{
     display: block;
+    margin: 10px;
+}
+.div{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 60px;
+    text-align: center;
+}
+.video {
+
+    margin: 25px;
 }
