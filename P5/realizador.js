@@ -64,7 +64,7 @@ btn_src_on.onclick = () => {
   directo.poster = TEST_IMAGE_URL;
 };
 
-//-- Boton Fuentes OFF
+//-- Botón Fuentes OFF
 btn_src_off.onclick = () => {
     directo.src = null;
     video1.src = null;
@@ -77,12 +77,12 @@ btn_src_off.onclick = () => {
     test.poster = TEST_IMAGE_URL;
 }
 
-//-- Boton pausar el directo
+//-- Botón pausar el directo
 btn_src_stop.onclick = () => {
     directo.pause();
 }
 
-//-- Boton renaudar el directo
+//-- Botón renaudar el directo
 btn_src_start.onclick = () => {
     directo.play();
 }
