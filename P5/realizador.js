@@ -36,7 +36,7 @@ directo.poster = TEST_IMAGE_URL;
 video1.poster = TEST_IMAGE_URL;
 video2.poster = TEST_IMAGE_URL;
 video3.poster = TEST_IMAGE_URL;
-test.poster = pruebas;
+test.poster = TEST_IMAGE_URL;
 
 //-- Boton de FUENTES-ON
 btn_src_on.onclick = () => {
@@ -53,6 +53,7 @@ btn_src_on.onclick = () => {
   video2.play();
   video3.currentTime = 0;
   video3.play();
+  test.poster = pruebas;
 
   //-- Y en silencio...
   video1.muted ="true";
@@ -66,8 +67,14 @@ btn_src_on.onclick = () => {
 //-- Boton Fuentes OFF
 btn_src_off.onclick = () => {
     directo.src = null;
+    video1.src = null;
+    video2.src = null;
+    video3.src = null;
     directo.poster = TEST_IMAGE_URL;
-
+    video1.poster = TEST_IMAGE_URL;
+    video2.poster = TEST_IMAGE_URL;
+    video3.poster = TEST_IMAGE_URL;
+    test.poster = TEST_IMAGE_URL;
 }
 
 //-- Boton pausar el directo
