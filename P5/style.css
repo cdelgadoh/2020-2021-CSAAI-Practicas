@@ -11,6 +11,7 @@
 .video {
 
     margin: 25px;
+    margin-left: 75px;
 }
 #directo{
     margin-left: auto;
@@ -29,17 +30,17 @@
 }
 
 #btn_video1{
-    margin-left: 75px;
+    margin-left: 140px;
 }
 
 #btn_video2{
-    margin-left: 200px;
+    margin-left: 240px;
 }
 
 #btn_video3{
-    margin-left: 200px;
+    margin-left: 240px;
 }
 
 #btn_test{
-    margin-left: 200px;
+    margin-left: 230px;
 }

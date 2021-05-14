@@ -10,6 +10,8 @@ const test = document.getElementById("prueba");
 const btn_test = document.getElementById("btn_test");
 const btn_src_on = document.getElementById("btn_src_on");
 const btn_src_off = document.getElementById("btn_src_off");
+const btn_src_stop = document.getElementById("btn_src_stop");
+const btn_src_start= document.getElementById("btn_src_start");
 
 //-- Establecer las dimensiones de los vídeos
 directo.width=400;
@@ -20,8 +22,9 @@ video2.width=200;
 video2.height=100;
 video3.width=200;  
 video3.height=100;
-video3.width=200;  
-video3.height=100;
+test.width=200;
+test.height=100;
+
 
 //-- Imagen de Test usada
 const TEST_IMAGE_URL = "noseñal.jpg";
@@ -66,6 +69,17 @@ btn_src_off.onclick = () => {
     directo.poster = TEST_IMAGE_URL;
 
 }
+
+//-- Boton pausar el directo
+btn_src_stop.onclick = () => {
+    directo.pause();
+}
+
+//-- Boton renaudar el directo
+btn_src_start.onclick = () => {
+    directo.play();
+}
+
 //-- Botón de Test
 btn_test.onclick = () => {
     directo.poster = pruebas;
