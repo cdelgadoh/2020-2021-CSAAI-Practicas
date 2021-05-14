@@ -12,6 +12,7 @@ const btn_src_on = document.getElementById("btn_src_on");
 const btn_src_off = document.getElementById("btn_src_off");
 const btn_src_stop = document.getElementById("btn_src_stop");
 const btn_src_start= document.getElementById("btn_src_start");
+const bucle= document.getElementById("btn_src_bucle");
 
 //-- Establecer las dimensiones de los vídeos
 directo.width=400;
@@ -24,6 +25,9 @@ video3.width=200;
 video3.height=100;
 test.width=200;
 test.height=100;
+
+//-- Variables bucle
+var modeloop = false;
 
 
 //-- Imagen de Test usada
@@ -75,17 +79,17 @@ btn_src_off.onclick = () => {
     video2.poster = TEST_IMAGE_URL;
     video3.poster = TEST_IMAGE_URL;
     test.poster = TEST_IMAGE_URL;
-}
+};
 
 //-- Botón pausar el directo
 btn_src_stop.onclick = () => {
     directo.pause();
-}
+};
 
 //-- Botón renaudar el directo
 btn_src_start.onclick = () => {
     directo.play();
-}
+};
 
 //-- Botón de Test
 btn_test.onclick = () => {
@@ -116,3 +120,4 @@ btn_video2.onclick = () => {
     directo.play();
     directo.poster=null;
 };
+
