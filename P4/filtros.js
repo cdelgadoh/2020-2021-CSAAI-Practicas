@@ -90,8 +90,6 @@ function gris() {
 }
 
 
-
-
 function negativo() {
   var imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
   var data = imgData.data
@@ -112,6 +110,36 @@ function rotar(select){
   ctx.translate(mode[0], mode[1]);
   ctx.scale(mode[2], mode[3]);
   ctx.drawImage(img, 0, 0);
+}
+function sepia(select){
+  //-- Obtener la imagen del canvas en pixeles
+  let imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+
+  //-- Obtener el array con todos los píxeles
+  var data = imgData.data
+  for (let i = 0; i < data.length; i+=4) {
+    data[i] = (data[i] * .393) + (data[i+1] * .769) + (data[i+2] * .189);
+    data[i+1] = (data[i] * .349) + (data[i+1] * .686) + (data[i+2] * .168);
+    data[i+2] = (data[i] * .272) + (data[i+1] * .534) + (data[i+2] * .131);
+  }
+    ctx.putImageData(imgData, 0, 0);
+  
+}
+
+function ruido(select){
+  let imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+  var data = imgData.data
+    for (var i = 0, n = data.length; i < n; i += 4) {
+       // Genero 3 tipos de colores aleatorios delimitados (para r g y b)
+       var randColor1 = 0.6 + Math.random() * 0.4;
+       var randColor2 = 0.6 + Math.random() * 0.4;
+       var randColor3 = 0.6 + Math.random() * 0.4;
+        // añado los colores a los datos
+        data[i] = data[i]*randColor1; // Rojo
+        data[i+1] = data[i+1]*randColor2; // Verde
+        data[i+2] = data[i+2]*randColor3; // Azul
+    }
+    ctx.putImageData(imgData, 0, 0);
 }
 
 function main() {
@@ -135,6 +163,12 @@ function main() {
       }
       if (option == 'Negativo') {
         negativo();
+      }
+      if (option == 'Sepia') {
+        sepia();
+      }
+      if (option == 'Ruido') {
+        ruido();
       }
     }
   }
