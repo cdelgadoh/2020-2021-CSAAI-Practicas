@@ -162,12 +162,15 @@ function main() {
         rotar('vertical');
       }
       if (option == 'Negativo') {
+        deslizadores.style.display = 'none'
         negativo();
       }
       if (option == 'Sepia') {
+        deslizadores.style.display = 'none'
         sepia();
       }
       if (option == 'Ruido') {
+        deslizadores.style.display = 'none'
         ruido();
       }
     }
