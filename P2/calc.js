@@ -126,27 +126,27 @@ raiz.onclick = () => {
 }
 
 //-- Calcular el seno 
-seno.onclick = () => {
+sin.onclick = () => {
   click.play();
   resultado = Math.sin(display.innerHTML);
   display.innerHTML=resultado
 
 }
 //-- Calcular el coseno
-coseno.onclick = () => {
+cos.onclick = () => {
   click.play();
   resultado = Math.cos(display.innerHTML);
   display.innerHTML=resultado
   
 }
 //-- Calcular la tangente
-tangente.onclick = () => {
+tan.onclick = () => {
   click.play();
   resultado = Math.tan(display.innerHTML);
   display.innerHTML=resultado
 }
 //-- Calcular logaritmo
-logaritmo.onclick = () => {
+log.onclick = () => {
   resultado = Math.log10(display.innerHTML);
   display.innerHTML=resultado
   click.play();
@@ -154,6 +154,6 @@ logaritmo.onclick = () => {
 //-- Calcular logaritmo neperiano
 ln.onclick = () => {
   click.play();
-  resultado = Math.ln(display.innerHTML);
+  resultado = Math.log(display.innerHTML);
   display.innerHTML=resultado
 }
