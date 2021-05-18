@@ -183,7 +183,7 @@ function main() {
     colores();
   }
   deslizador_B.oninput = () => {
-    colo();
+    colores();
   }
 
 
