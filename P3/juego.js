@@ -161,7 +161,7 @@ function colision(){
               }
           }
       }
-  }  
+  } 
 }
 //-- Texto con puntos
 function puntuacion(){

@@ -12,7 +12,6 @@ const btn_src_on = document.getElementById("btn_src_on");
 const btn_src_off = document.getElementById("btn_src_off");
 const btn_src_stop = document.getElementById("btn_src_stop");
 const btn_src_start= document.getElementById("btn_src_start");
-const auto= document.getElementById("btn_src_auto");
 const bucle= document.getElementById("btn_src_bucle");
 
 //-- Establecer las dimensiones de los vídeos
