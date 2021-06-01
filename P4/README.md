@@ -4,8 +4,7 @@ Hay que seleccionar una de las 4 imagenes disponibles para aplicar los filtros.
 
 Funcionamiento Básico:
     Filtro de grises y Escala de Colores (RGB).
-    Los deslizadores (RGB) aparecen por defecto pero al seleccionar otro fltro desaparece y volverá a aparecer cuando pulsas el botón Colores.
-Hay un botón Reset para volver a imagen original.
+    Los deslizadores (RGB) aparecen por defecto pero al seleccionar otro fltro desaparecen y volverá a aparecer cuando pulsas el botón Colores.
 
 MEJORAS: 
     1. Filtro ruido.

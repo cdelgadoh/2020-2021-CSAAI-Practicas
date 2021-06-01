@@ -8,10 +8,10 @@ Fncionamiento básico:
     Para ganar hay que destruir todos los ladrillos.
 
 MEJORAS:
-    1.  Sonidos para la destrucción de los ladrillos, cuando se pierde
+    1. Sonidos para la destrucción de los ladrillos, cuando se pierde
         una vida, rebote en la raqueta y cuando se pierde / gana el juego.
+        
+    2. Puntuación variable de los ladrillos: Dependiendodel color se obtendran más puntos o menos.
     
-    2.  Puntuación variable de los ladrillos: Dependiendodel color se obtendran más puntos o menos.
-
     3. Color de los ladrillos aleatorio.
 
